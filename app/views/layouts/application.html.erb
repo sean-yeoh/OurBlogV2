@@ -10,10 +10,19 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render "layouts/nav" %>
 
-    <%= yield %>
+    <% flash.each do |name, msg| %>
+      <div class="row column">
+        <div class="callout <%= name %>">
+          <%= msg %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row column">
+      <%= yield %>
+    </div>
 
   </body>
 </html>
