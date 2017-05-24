@@ -10,19 +10,22 @@
   </head>
 
   <body>
-    <%= render "layouts/nav" %>
+    <div class="off-canvas-wrapper">
+      <div class="off-canvas-content" data-off-canvas-content>
+        <%= render "navigation/topbar" %>
 
-    <% flash.each do |name, msg| %>
-      <div class="row column">
-        <div class="callout <%= name %>">
-          <%= msg %>
+        <% flash.each do |name, msg| %>
+          <div class="row column">
+            <div class="callout <%= name %>">
+              <%= msg %>
+            </div>
+          </div>
+        <% end %>
+
+        <div class="row column">
+          <%= yield %>
         </div>
       </div>
-    <% end %>
-
-    <div class="row column">
-      <%= yield %>
     </div>
-
   </body>
 </html>
