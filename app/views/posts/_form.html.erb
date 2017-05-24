@@ -1,0 +1,6 @@
+<%= simple_form_for @post do |f| %>
+  <%= f.input :title %>
+  <%= f.input :content, input_html: {class: "tinymce", rows: 20} %>
+  <%= f.submit %>
+<% end %>
+<%= tinymce menubar: false %>

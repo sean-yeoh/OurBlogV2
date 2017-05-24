@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
+//= require tinymce
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {

@@ -1,0 +1,10 @@
+toolbar:
+  - fontselect fontsizeselect fontname forecolor backcolor | bold italic underline strikethrough
+  - alignleft aligncenter alignright alignjustify | image uploadimage | link | undo redo | codesample 
+plugins:
+  - image
+  - link
+  - codesample
+  - textcolor
+  - colorpicker
+  - uploadimage

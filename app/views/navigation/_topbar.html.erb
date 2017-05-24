@@ -1,11 +1,11 @@
 <div class="top-bar">
   <div class="top-bar-title">
-    <span data-hide-for="medium">
-      <button class="menu-icon dark" type="button" data-toggle></button>
-    </span>
-    <strong>Our Blog</strong>
+      <a data-toggle="offCanvas" class="hide-for-large">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </a>
+    <strong><%= link_to "Our Blog", root_path %></strong>
   </div>
-  <div class="top-bar-right">
+  <div class="top-bar-right show-for-large">
     <ul class="menu">
       <li>
         <a>Photos</a>
@@ -15,17 +15,30 @@
       </li>
       <li>
         <a>About</a>
-
+      </li>
+      <li>
+        <%= link_to "New Post", new_post_path %>
+      </li>
+      <li>
+        <ul class="dropdown menu" data-dropdown-menu data-disable-hover="true" data-click-open="true">
+        <li>
+          <a><i class="fa fa-cog" aria-hidden="true"></i></a>
+          <ul class="menu vertical">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Login/Logout</a></li>
+          </ul>
+        </li>
+      </ul>
       </li>
     </ul>
   </div>
 </div>
-<button type="button" class="button" data-toggle="offCanvas">Open Menu</button>
-<div class="off-canvas position-left" id="offCanvas" data-off-canvas style="background-color:pink">
+
+<div class="off-canvas position-left" id="offCanvas" data-off-canvas>
   <!-- Your menu or Off-canvas content goes here -->
-  <button class="close-button" aria-label="Close menu" type="button" data-close>
-    <span aria-hidden="true">&times;</span>
-  </button>
+  <a aria-label="Close menu" data-close>
+    <i class="fa fa-times" aria-hidden="true"></i>
+  </a>
   <p>
     hello
   </p>
