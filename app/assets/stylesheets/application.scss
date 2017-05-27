@@ -16,3 +16,15 @@
 
 @import "foundation_and_overrides";
 @import "font-awesome";
+
+.topbar-dropdown {
+  background-color: $primary-color;
+}
+
+.menu-divider {
+  margin: 0 auto;
+}
+
+.off-canvas ul li a {
+  color: $white;
+}
