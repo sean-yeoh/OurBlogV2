@@ -1,9 +1,9 @@
 <div class="top-bar">
   <div class="top-bar-title">
-    <a data-toggle="sidebar-menu" class="hide-for-large">
+    <a data-toggle="sidebar-menu" class="hide-for-large top-bar-hamburger">
       <i class="fa fa-bars" aria-hidden="true"></i>
     </a>
-    <strong><%= link_to "Our Blog", root_path %></strong>
+    <%= link_to "Our Blog", root_path %>
   </div>
   <div class="top-bar-right show-for-large">
     <ul class="menu">
@@ -26,7 +26,13 @@
           <ul class="menu vertical">
             <li><a href="#">Profile</a></li>
             <hr class="menu-divider"/>
-            <li><a href="#">Login/Logout</a></li>
+            <li>
+              <% if admin_signed_in? %>
+                <%= link_to "Log Out", destroy_admin_session_path, method: :delete %>
+              <% else %>
+                <%= link_to "Log In", new_admin_session_path %>
+              <% end %>
+            </li>
           </ul>
         </li>
       </ul>
@@ -46,11 +52,16 @@
     <li class="text-center"><a href="#">One</a></li>
     <li class="text-center"><a href="#">Two</a></li>
     <li class="text-center"><a href="#">Three</a></li>
-    <li class="text-center"><a href="#">Four</a></li>
+    <li class="text-center">
+      <%= link_to "New Post", new_post_path %>
+    </li>
     <hr class="menu-divider"/>
     <li class="text-center">
+      <a href="#">Profile</a>
+    </li>
+    <li class="text-center">
       <% if admin_signed_in? %>
-      <%= link_to "Log Out", destroy_admin_session_path, method: :delete %>
+        <%= link_to "Log Out", destroy_admin_session_path, method: :delete %>
       <% else %>
         <%= link_to "Log In", new_admin_session_path %>
       <% end %>

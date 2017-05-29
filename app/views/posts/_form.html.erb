@@ -1,6 +1,8 @@
 <%= simple_form_for @post do |f| %>
   <%= f.input :title %>
-  <%= f.input :content, input_html: {class: "tinymce", rows: 20} %>
-  <%= f.submit %>
+  <%= f.input :content, input_html: {class: "tinymce", rows: 15} %>
+  <div class="row align-center">
+    <%= f.submit class: "button success column small-6 medium-4" %>
+  </div>
 <% end %>
 <%= tinymce menubar: false %>

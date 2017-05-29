@@ -1,3 +1,18 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.posts {
+  h4 {
+    margin-top: $global-margin * 0.5;
+  }
+
+  input[type="text"] {
+    margin-bottom: 0;
+  }
+
+  .post_content {
+    margin-top: $global-margin;
+    margin-bottom: $global-margin;
+  }
+}

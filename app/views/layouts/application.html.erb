@@ -9,7 +9,7 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body>
+  <body class="<%= content_for(:body_class) || request.controller_class.name.downcase.gsub('controller','') %>">
     <div class="off-canvas-wrapper">
       <div class="off-canvas-content" data-off-canvas-content>
         <%= render "navigation/topbar" %>

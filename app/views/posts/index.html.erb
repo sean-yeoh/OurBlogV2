@@ -1,17 +1,42 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
-<div class="callout primary">
-  hello
-</div>
-<div class="callout secondary">
-  hello
-</div>
-<div class="callout success">
-  hello
-</div>
-<div class="callout warning">
-  hello
-</div>
-<div class="callout alert">
-  hello
+<div class="row">
+  <div class="column small-12 large-9 small-order-2 large-order-1">
+    <% @posts.each do |post| %>
+      <div class="card">
+        <div class="card-divider">
+          <%= post.title %><br />
+          posted by <%= post.admin.email %>
+        </div>
+        <div class="card-section">
+          <%= post.content.html_safe %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="column small-12 large-3 small-order-1 large-order-2">
+    <ul class="vertical menu" data-accordion-menu>
+      <li>
+        <a href="#">Item 1</a>
+        <ul class="menu vertical nested">
+          <li>
+            <a href="#">Item 1A</a>
+            <ul class="menu vertical nested">
+              <li><a href="#">Item 1Ai</a></li>
+              <li><a href="#">Item 1Aii</a></li>
+              <li><a href="#">Item 1Aiii</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Item 1B</a></li>
+          <li><a href="#">Item 1C</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Item 2</a>
+        <ul class="menu vertical nested">
+          <li><a href="#">Item 2A</a></li>
+          <li><a href="#">Item 2B</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Item 3</a></li>
+    </ul>
+  </div>
 </div>

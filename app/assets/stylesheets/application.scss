@@ -10,13 +10,15 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
 
 @import "foundation_and_overrides";
 @import "font-awesome";
+@import "posts";
 
+* {
+  word-wrap: break-word;
+}
 .topbar-dropdown {
   background-color: $primary-color;
 }
@@ -27,4 +29,34 @@
 
 .off-canvas ul li a {
   color: $white;
+  font-weight: $global-weight-bold;
+}
+
+.top-bar {
+  &-hamburger {
+    padding-right: $global-padding;
+  }
+
+  a {
+  font-weight: $global-weight-bold;
+  }
+}
+
+.field_with_errors {
+  input {
+    border-color: $error-color;
+    background: $alert-color;
+  }
+  label, span {
+    color: $error-color;
+  }
+  input:focus {
+    background: $alert-color;
+    border-color: $error-color;
+    box-shadow: 0 0 5px $error-color;
+  }
+}
+
+.callout.notice {
+  @extend .success;
 }
