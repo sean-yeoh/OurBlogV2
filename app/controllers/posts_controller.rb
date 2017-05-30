@@ -3,6 +3,8 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @year = Post.all.map{|post| post.created_at.year}.uniq
+    @year_month = Post.all.map{|post| "#{post.created_at.year}-#{post.created_at.month}"}.uniq
   end
 
   def new

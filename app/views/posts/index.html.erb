@@ -14,6 +14,25 @@
   </div>
   <div class="column small-12 large-3 small-order-1 large-order-2">
     <ul class="vertical menu" data-accordion-menu>
+      <% @posts.each do |post| %>
+        <% @year.each do |year| %>
+          <li>
+            <%= link_to year, "#" %>
+            <ul class="menu vertical nested">
+              <% @year_month.each do |yr_month| %>
+                <%= link_to I18n.t("date.abbr_month_names")[yr_month.split("-").last.to_i], "#" %>
+                <ul class="menu vertical nested">
+                  <% if post.created_at.year == year && yr_month == "#{post.created_at.year}-#{post.created_at.month}"%>
+                    <li><%= link_to post.title, post_path(post) %>></li>
+                  <% end %>
+                </ul>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+    <ul class="vertical menu" data-accordion-menu style="max-width: 250px">
       <li>
         <a href="#">Item 1</a>
         <ul class="menu vertical nested">
@@ -25,18 +44,11 @@
               <li><a href="#">Item 1Aiii</a></li>
             </ul>
           </li>
-          <li><a href="#">Item 1B</a></li>
-          <li><a href="#">Item 1C</a></li>
+
         </ul>
       </li>
-      <li>
-        <a href="#">Item 2</a>
-        <ul class="menu vertical nested">
-          <li><a href="#">Item 2A</a></li>
-          <li><a href="#">Item 2B</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Item 3</a></li>
+
+
     </ul>
   </div>
 </div>
