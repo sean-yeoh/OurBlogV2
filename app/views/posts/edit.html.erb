@@ -1,7 +1,10 @@
-<%= link_to "Back", @post %>
-<h5>Edit Post</h5>
+<div class="row align-middle">
+  <div class="column">
+    <h4 class="float-left">Edit Post</h4>
+  </div>
+  <div class="shrink column">
+    <%= link_to "Back", @post, class: "float-right button secondary back-button" %>
+  </div>
+</div>
 
 <%= render 'form', post: @post %>
-
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>

@@ -14,5 +14,54 @@
   .post_content {
     margin-top: $global-margin;
     margin-bottom: $global-margin;
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+  }
+
+  .edit-post-link {
+    color: #ff7b0d;
+  }
+
+  .delete-post-link {
+    color: $error-color;
+  }
+
+  .back-button {
+    margin: 0;
+    padding: 0.5rem 1rem;
+  }
+
+  &-container {
+    .posts-archive {
+      margin-bottom: $global-margin;
+      a {
+        font-weight: bold;
+        color: #00238d;
+      }
+    }
+
+    margin-top: 0.5rem;
+    .post {
+      margin-bottom: $global-margin * 3;
+      &-title {
+        border-top-style: double;
+        border-top-color: $secondary-color;
+        border-bottom-style: double;
+        border-bottom-color: $secondary-color;
+        padding: 0.5rem 1rem;
+        h4, p {
+          margin: 0;
+        }
+        p {
+          color: $dark-gray;
+        }
+      }
+      &-content {
+        padding: 0.5rem 1rem;
+
+      }
+    }
   }
 }

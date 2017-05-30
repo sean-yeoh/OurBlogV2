@@ -1,19 +1,22 @@
-<div class="row">
+<div class="row posts-container">
   <div class="column small-12 large-9 small-order-2 large-order-1">
     <% @posts.each do |post| %>
-      <div class="card">
-        <div class="card-divider">
-          <%= post.title %><br />
-          posted by <%= post.admin.email %>
-        </div>
-        <div class="card-section">
+      <div class="post">
+        <%= link_to post_path(post) do %>
+          <div class="post-title">
+            <h4><%= post.title %></h4>
+            <p><%= post.created_at.strftime("%d %B %Y")%></p>
+          </div>
+        <% end %>
+        <div class="post-content">
           <%= post.content.html_safe %>
         </div>
-      </div>
+        </div>
     <% end %>
   </div>
+
   <div class="column small-12 large-3 small-order-1 large-order-2">
-    <ul class="vertical menu" data-accordion-menu>
+    <ul class="vertical menu posts-archive" data-accordion-menu>
       <% @years.each do |year| %>
         <li>
           <%= link_to year, "#" %>
@@ -24,7 +27,7 @@
                   <%= link_to I18n.t("date.abbr_month_names")[yr_month.last], "#" %>
                   <ul class="menu vertical nested">
                     <% post_arr.each do |post| %>
-                      <li><%= link_to post.title, post_path(post) %></li>
+                      <li><%= link_to "#{post.created_at.day} - #{post.title}", post_path(post) %></li>
                     <% end %>
                   </ul>
                 </li>
