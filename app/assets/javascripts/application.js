@@ -15,6 +15,8 @@
 //= require foundation
 //= require turbolinks
 //= require tinymce
+//= require dropzone
+//= require photoswipe
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {

@@ -10,11 +10,16 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require dropzone/dropzone
+ *= require photoswipe
  */
 
 @import "foundation_and_overrides";
 @import "font-awesome";
 @import "posts";
+@import "shared";
+@import "albums";
+@import "photos";
 
 * {
   word-wrap: break-word;
@@ -38,6 +43,9 @@
     border-color: $error-color;
     box-shadow: 0 0 5px $error-color;
   }
+  span {
+    font-size: 0.9rem;
+  }
 }
 
 .callout.notice {
@@ -60,5 +68,27 @@
 
   .menu-divider {
     margin: 0 auto;
+  }
+}
+
+.upload-link, .upload-link:hover {
+  color: $upload-color;
+}
+
+.edit-link, .edit-link:hover {
+  color: $edit-color;
+}
+
+.delete-link, .delete-link:hover {
+  color: $error-color;
+}
+
+.menu.remove-first-child-padding {
+  li:first-child a {
+    padding-left: 0;
+  }
+
+  li:first-child {
+    padding-left: 0;
   }
 }

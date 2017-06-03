@@ -1,0 +1,22 @@
+<nav aria-label="You are here:" role="navigation">
+  <ul class="breadcrumbs">
+    <li>
+      <strong><%= link_to "All Photos", photos_path %></strong>
+    </li>
+    <li>
+      <strong><%= link_to "Albums", albums_path %></strong>
+    </li>
+    <% if params[:controller] == "albums" && params[:action] == "show" %>
+      <li>
+        <strong><span class="show-for-sr">Current: </span> <%= @album.name %></strong>
+      </li>
+    <% else %>
+      <li>
+        <strong><%= link_to @album.name, @album %></strong>
+      </li>
+      <li>
+        <strong><span class="show-for-sr">Current: </span> Edit</strong>
+      </li>
+    <% end %>
+  </ul>
+</nav>

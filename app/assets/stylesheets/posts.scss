@@ -26,7 +26,7 @@
     margin-top: $global-margin * 0.5;
 
     .edit-post-link {
-      color: #ff7b0d;
+      color: $edit-color;
     }
 
     .delete-post-link {
@@ -49,7 +49,6 @@
       margin-bottom: $global-margin;
       a {
         font-weight: bold;
-        color: #00238d;
       }
     }
 

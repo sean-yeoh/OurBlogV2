@@ -1,0 +1,35 @@
+<div class="row align-center albums-all">
+  <div class="column small-12 medium-10 large-8">
+    <%= render "shared/tabs" %>
+
+    <div class="row">
+      <% @albums.each do |album| %>
+        <div class="column small-6 medium-4 large-3 photo-container">
+          <%= link_to album_path(album) do %>
+            <div class="photo-link">
+              <% if album.photos.blank? %>
+                <img style="background-image:url(http://placehold.it/300x300?text=No+Photos);" class="photo-image album-image"/>
+              <% else %>
+                <img style="background-image:url(<%= album.photos.first.image_url %>);" class="photo-image album-image" />
+              <% end %>
+            </div>
+            <p class="album-name">
+              <%= album.name %>
+            </p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+<% if admin_signed_in? %>
+  <div class="reveal" id="album-form" data-reveal>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h6 class="text-center">New Album</h6>
+    <%= render "form", album: @album, action: "Create" %>
+  </div>
+<% end %>

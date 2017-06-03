@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170530145325) do
+ActiveRecord::Schema.define(version: 20170603070136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,24 @@ ActiveRecord::Schema.define(version: 20170530145325) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "albums", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "admin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_albums_on_admin_id", using: :btree
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.text     "image_data"
+    t.integer  "admin_id"
+    t.integer  "album_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_photos_on_admin_id", using: :btree
+    t.index ["album_id"], name: "index_photos_on_album_id", using: :btree
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
@@ -47,5 +65,8 @@ ActiveRecord::Schema.define(version: 20170530145325) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "albums", "admins"
+  add_foreign_key "photos", "admins"
+  add_foreign_key "photos", "albums"
   add_foreign_key "posts", "admins"
 end

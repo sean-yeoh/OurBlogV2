@@ -1,0 +1,41 @@
+<%= form_tag delete_selected_path(@album), method: :delete, id: "edit-album-form" do %>
+
+  <div class="row align-center">
+    <div class="column small-12 medium-10 large-8">
+      <%= render "shared/breadcrumbs" %>
+
+      <div class="row">
+        <div class="column">
+          <h4>
+            <%= @album.name %>
+          </h4>
+        </div>
+
+        <div class="shrink column">
+          <a data-open="album-form" class="button success">
+            Edit
+          </a>
+          <%= content_tag :button, type: :submit, class: "button alert" do %>
+            <i class="fa fa-times" aria-hidden="true"></i> Selected
+          <% end %>
+
+          <%= link_to delete_all_path(@album), method: :delete, "data-confirm": "Are you sure you want to delete all photos in this album?", class: "button alert" do %>
+            <i class="fa fa-times" aria-hidden="true"></i> All
+          <% end %>
+        </div>
+      </div>
+
+      <%= render "shared/gallery", gallery: @album.photos, edit: true %>
+
+    </div>
+
+  </div>
+<% end %>
+
+<div class="reveal" id="album-form" data-reveal>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <h6 class="text-center">New Album</h6>
+  <%= render "form", album: @album, action: "Update" %>
+</div>

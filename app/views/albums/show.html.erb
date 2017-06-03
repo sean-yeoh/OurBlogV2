@@ -1,0 +1,58 @@
+<div class="albums-show row align-center">
+  <div class="column small-12 medium-10 large-8">
+    <%= render "shared/breadcrumbs" %>
+    <div class="row">
+      <div class="column">
+        <h4>
+          <%= @album.name %>
+        </h4>
+      </div>
+      <% if admin_signed_in? %>
+        <div class="shrink column">
+          <ul class="menu remove-first-child-padding">
+            <li>
+              <a data-open="dropzone-form" class="upload-link">
+                <i class="fa fa-upload" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <%= link_to edit_album_path(@album), class: "edit-link" do %>
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to @album, method: :delete, "data-confirm": "Are you sure you want to delete this album?", class: "delete-link" do %>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                <% end %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <% if @album.photos.blank? %>
+      <div class="row column text-center" id="empty-album">
+        <h4 class="subheader">
+          This album is empty.
+        </h4>
+      </div>
+    <% end %>
+
+    <%= render "shared/gallery", gallery: @album.photos, edit: false %>
+  </div>
+</div>
+
+<div class="reveal" id="dropzone-form" data-reveal>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <h6><strong>Upload Here</strong></h6>
+  <%= form_for [@album, @photo], html: {class: "dropzone"} do |f| %>
+    <div class="fallback">
+      <%= f.file_field :image, multiple: true %>
+      <%= f.submit "Upload" %>
+    </div>
+  <% end %>
+</div>
+
+<%= render "shared/photoswipe" %>

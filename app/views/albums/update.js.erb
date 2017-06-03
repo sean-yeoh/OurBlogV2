@@ -1,0 +1,9 @@
+$(".error").remove();
+
+<% @album.errors.full_messages.each do |msg| %>
+  $(".album_name").append("<span class='error'><i class='fa fa-exclamation-circle'></i> <%= msg %></span>").hide().fadeIn(100);
+<% end %>
+
+$('#album_name').focus(function() {
+  $('.error').remove();
+})

@@ -1,0 +1,10 @@
+<%= simple_form_for album, remote: true do |f| %>
+  <div class="row align-center">
+    <div class="small-12 medium-9 column">
+      <%= f.input :name %>
+    </div>
+    <div class="small-8 medium-3 column text-right">
+      <%= f.submit action, class: "button expanded" %>
+    </div>
+  </div>
+<% end %>

@@ -8,14 +8,14 @@
       </div>
       <% if admin_signed_in? %>
         <div class="shrink column">
-          <ul class="menu">
+          <ul class="menu remove-first-child-padding">
             <li>
-              <%= link_to edit_post_path(@post), class: "edit-post-link" do %>
+              <%= link_to edit_post_path(@post), class: "edit-link" do %>
                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
               <% end %>
             </li>
             <li>
-              <%= link_to @post, method: :delete, class: "delete-post-link", data: { confirm: 'Are you sure?'}  do %>
+              <%= link_to @post, method: :delete, class: "delete-link", data: { confirm: 'Are you sure?'}  do %>
                 <i class="fa fa-trash" aria-hidden="true"></i>
               <% end %>
             </li>
@@ -31,7 +31,7 @@
         </h6>
       </div>
       <div class="shrink column">
-        <ul class="menu prev-next-menu">
+        <ul class="menu prev-next-menu remove-first-child-padding">
           <% if @post.previous == nil %>
             <li class="menu-text">
               Prev

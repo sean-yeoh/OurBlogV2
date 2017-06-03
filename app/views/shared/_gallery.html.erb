@@ -1,0 +1,12 @@
+<div class="row photo-gallery">
+  <% gallery.each do |photo| %>
+    <div class="small-6 medium-4 large-3 column photo-container">
+      <%= link_to photo.image_url, class: "photo-link", data: {size: "#{photo.image.width}x#{photo.image.height}"} do %>
+        <img style="background-image:url(<%= photo.image_url %>);" class="photo-image" />
+      <% end %>
+      <% if edit %>
+        <%= check_box_tag 'photos[]', photo.id, false %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

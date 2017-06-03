@@ -1,0 +1,60 @@
+// Place all the styles related to the albums controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.albums {
+
+  &-all {
+    .album-image {
+      border: 1px solid $primary-color;
+      border-bottom: none;
+    }
+
+    .album-name {
+      margin: 0;
+      padding: $global-padding * 0.5 $global-padding;
+      word-wrap: normal;
+      text-overflow: ellipsis;
+      overflow:hidden;
+      border: 1px solid $primary-color;
+      border-top: none;
+    }
+  }
+
+  #album-form {
+    input[type="text"] {
+      margin-bottom: 0;
+    }
+
+    input[type="submit"] {
+      margin-top: 24px;
+    }
+
+    .error {
+      font-size: 0.9rem;
+      color: $error-color;
+    }
+  }
+
+  #edit-album-form {
+    input[type='checkbox'] {
+      display: none;
+    }
+
+    .checked-photo {
+      opacity: 0.7;
+    }
+
+    .photo-container {
+        position: relative;
+      }
+
+    p.checked {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}

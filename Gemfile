@@ -61,3 +61,7 @@ gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupl
 gem 'simple_form'
 gem 'shrine'
 gem 'fastimage'
+gem 'dropzonejs-rails'
+gem 'photoswipe-rails'
+gem 'image_processing'
+gem 'mini_magick', '>= 4.3.5'

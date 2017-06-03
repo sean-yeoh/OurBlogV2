@@ -1,0 +1,23 @@
+<div class="tab-links">
+  <div class="row align-middle">
+    <div class="column">
+      <h4>
+        <i class="fa fa-picture-o" aria-hidden="true"></i> Photos
+      </h4>
+    </div>
+    <% if params[:controller] == "albums" %>
+      <div class="shrink column">
+        <a class="button success add-album-button" data-open="album-form"><i class="fa fa-plus" aria-hidden="true"></i></a>
+      </div>
+    <% end %>
+  </div>
+
+  <ul class="menu remove-first-child-padding">
+    <li>
+      <%= link_to "All Photos", photos_path, class: params[:controller] == "photos" ? "active" : "" %>
+    </li>
+    <li>
+      <%= link_to "Albums", albums_path, class: params[:controller] == "albums" ? "active" : "" %>
+    </li>
+  </ul>
+</div>

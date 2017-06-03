@@ -8,7 +8,7 @@
   <div class="top-bar-right show-for-large">
     <ul class="menu">
       <li>
-        <a>Photos</a>
+        <%= link_to "Photos", photos_path %>
       </li>
       <li>
         <a>To Do</a>
@@ -49,13 +49,15 @@
         <i class="fa fa-times" aria-hidden="true"></i>
       </a>
     </li>
-    <li class="text-center"><a href="#">One</a></li>
+    <li class="text-center">
+      <%= link_to "Photos", photos_path %>
+    </li>
     <li class="text-center"><a href="#">Two</a></li>
     <li class="text-center"><a href="#">Three</a></li>
     <li class="text-center">
       <%= link_to "New Post", new_post_path %>
     </li>
-    <hr class="menu-divider"/>
+    <hr/>
     <li class="text-center">
       <a href="#">Profile</a>
     </li>
