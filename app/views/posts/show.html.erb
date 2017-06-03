@@ -1,24 +1,67 @@
-<h4 class="text-center">
-  <%= @post.title %>
-  <% if admin_signed_in? %>
-    <%= link_to edit_post_path(@post), class: "edit-post-link" do %>
-      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-    <% end %>
-    <%= link_to @post, method: :delete, class: "delete-post-link", data: { confirm: 'Are you sure?'}  do %>
-      <i class="fa fa-trash" aria-hidden="true"></i>
-    <% end %>
-  <% end %>
-</h4>
-<div>
-  <h6 class="text-center subheader">
-    <%= @post.created_at.strftime("Posted on %A, %d %B %Y")%> by <%= @post.admin.email %>
-  </h6>
-</div>
-
-<hr />
-
-<div class="row align-center">
+<div class="posts-show row align-center">
   <div class="column small-12 medium-10 large-8">
+    <div class="row">
+      <div class="column">
+        <h4>
+          <%= @post.title %>
+        </h4>
+      </div>
+      <% if admin_signed_in? %>
+        <div class="shrink column">
+          <ul class="menu">
+            <li>
+              <%= link_to edit_post_path(@post), class: "edit-post-link" do %>
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to @post, method: :delete, class: "delete-post-link", data: { confirm: 'Are you sure?'}  do %>
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="row align-middle">
+      <div class="column">
+        <h6 class="subheader">
+          <%= @post.created_at.strftime("Posted on %A, %d %B %Y")%> by <%= @post.admin.email %>
+        </h6>
+      </div>
+      <div class="shrink column">
+        <ul class="menu prev-next-menu">
+          <% if @post.previous == nil %>
+            <li class="menu-text">
+              Prev
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Prev", @post.previous %>
+            </li>
+          <% end %>
+
+          <li>
+            |
+          </li>
+
+          <% if @post.next == nil %>
+            <li class="menu-text">
+              Next
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Next", @post.next %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+    <hr />
+
     <%= @post.content.html_safe %>
+
   </div>
 </div>

@@ -1,10 +1,11 @@
-<div class="row align-middle">
-  <div class="column">
-    <h4 class="float-left">Edit Post</h4>
+<div class="posts-form">
+  <div class="row align-middle">
+    <div class="column">
+      <h4>Edit Post</h4>
+    </div>
+    <div class="shrink column">
+      <%= link_to "Back", @post, class: "float-right button secondary back-button" %>
+    </div>
   </div>
-  <div class="shrink column">
-    <%= link_to "Back", @post, class: "float-right button secondary back-button" %>
-  </div>
+  <%= render 'form', post: @post %>
 </div>
-
-<%= render 'form', post: @post %>

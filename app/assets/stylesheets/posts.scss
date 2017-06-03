@@ -3,37 +3,48 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .posts {
-  h4 {
+
+  &-form {
     margin-top: $global-margin * 0.5;
-  }
 
-  input[type="text"] {
-    margin-bottom: 0;
-  }
+    input[type="text"] {
+      margin-bottom: 0;
+    }
 
-  .post_content {
-    margin-top: $global-margin;
-    margin-bottom: $global-margin;
-    img {
-        max-width: 100%;
-        height: auto;
+    .post_content {
+      margin-top: $global-margin;
+      margin-bottom: $global-margin;
+    }
+
+    .back-button {
+      margin: 0;
+      padding: 0.5rem 1rem;
     }
   }
 
-  .edit-post-link {
-    color: #ff7b0d;
-  }
+  &-show {
+    margin-top: $global-margin * 0.5;
 
-  .delete-post-link {
-    color: $error-color;
-  }
+    .edit-post-link {
+      color: #ff7b0d;
+    }
 
-  .back-button {
-    margin: 0;
-    padding: 0.5rem 1rem;
+    .delete-post-link {
+      color: $error-color;
+    }
+
+    .prev-next-menu li {
+      font-weight: $global-weight-bold;
+      font-size: 0.9rem;
+    }
   }
 
   &-container {
+
+    .archive{
+      padding: 0 $global-padding;
+      margin: 0;
+    }
     .posts-archive {
       margin-bottom: $global-margin;
       a {
